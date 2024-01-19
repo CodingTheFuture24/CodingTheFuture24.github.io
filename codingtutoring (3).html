@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Display">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ultra">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+	<title></title>
+	<style type="text/css">
+		@media (min-width: 600px) {
+			body{
+				background-color: rgb(245, 231, 196);
+				margin: 0px;
+			}
+
+			#lottiehead{
+				position: absolute;
+				left: 55vw;
+				top: 50px;
+			}
+
+			#head{
+				position: absolute;
+				left: 10vw;
+				top: 40vh;
+				font-family: "Ultra";
+				color: rgb(219, 83, 15);
+				font-size: 50px;
+			}
+
+			#start{
+				position: absolute;
+				width: 30vw;
+				right: 130vw;
+				top: 50vh;
+				font-family: "Ultra";
+				color: rgb(219, 108, 53);
+				font-size: 30px;
+			}
+
+			#scroll{
+				position: absolute;
+				height: 600px;
+				width: 300px;
+				top: 10000px;
+			}
+
+			#everything{
+				position: absolute;
+				width: 100vw;
+				height: 10vh;
+				transform: translateY(10px);
+			}
+
+			#firstpage{
+				position: absolute;
+				top: 100px;
+				left: 5vw;
+				width: 40vw;
+				height: 700px;
+				background-color: rgb(247, 236, 208);
+				border: 3px solid rgb(242, 144, 39);
+				box-shadow: 0px 0px 15px rgb(242, 144, 39);
+				border-radius: 4vw;
+				opacity: 0;
+				transition-property: opacity;
+				transition-duration: 1.5s;
+			}
+
+			#forstudents{
+				position: absolute;
+				top: 4%;
+				left: 3%;
+				width: 94%;
+				font-size: 35px;
+				text-shadow: 2px 2px 500px rgb(242, 144, 39);
+				font-family: "Alfa Slab One";
+				text-align: center;
+				color: rgb(219, 83, 15);
+			}
+
+			#courses{
+				font-size: 20px;
+				font-family: "Lato";
+				text-shadow: none;
+			}
+
+			#course{
+				margin-top: 20px;
+				font-size: 25px;
+				font-family: "Nunito";
+				text-align: left;
+				color: rgb(240, 84, 41);
+				text-shadow: none;
+			}
+
+			#courseDescription{
+				margin-left: 10%;
+				margin-top: 5px;
+				font-size: 20px;
+				font-family: "Nunito";
+				text-align: left;
+				text-shadow: none;
+				color: rgb(237, 105, 69);
+			}
+
+			#lottie{
+				position: absolute;
+				left: 50vw;
+				top: 50px;
+			}
+
+			#secondpage{
+				position: absolute;
+				top: 1710px;
+				left: 5vw;
+				width: 40vw;
+				height: 700px;
+				background-color: rgb(247, 236, 208);
+				border: 3px solid rgb(222, 82, 40);
+				box-shadow: 0px 0px 15px rgb(222, 82, 40);
+				border-radius: 4vw;
+				opacity: 1;
+				transition-property: opacity;
+				transition-duration: 1.5s;
+			}
+		}
+
+		@media (max-width: 600px) {
+			body{
+				background-color: rgb(245, 231, 196);
+				margin: 0px;
+			}
+
+			#lottiehead{
+				opacity: 0;
+			}
+
+			#head{
+				position: absolute;
+				width: 100vw;
+				top: 20vh;
+				font-family: "Ultra";
+				color: rgb(219, 83, 15);
+				font-size: 30px;
+				text-align: center;
+			}
+
+			#start{
+				position: absolute;
+				width: 150vw;
+				right: 80vw;
+				margin-left: 100vw;
+				top: 50vh;
+				font-family: "Ultra";
+				color: rgb(219, 108, 53);
+				font-size: 24px;
+			}
+
+			#scroll{
+				position: absolute;
+				height: 600px;
+				width: 300px;
+				top: 10000px;
+			}
+
+			#everything{
+				position: absolute;
+				width: 100vw;
+				height: 10vh;
+				transform: translateY(10px);
+			}
+
+			#firstpage{
+				position: absolute;
+				top: 100px;
+				left: 5vw;
+				width: 90vw;
+				height: 1000px;
+				background-color: rgb(247, 236, 208);
+				border: 3px solid rgb(242, 144, 39);
+				box-shadow: 0px 0px 15px rgb(242, 144, 39);
+				border-radius: 20px;
+				opacity: 0;
+				transition-property: opacity;
+				transition-duration: 1.5s;
+			}
+
+			#forstudents{
+				position: absolute;
+				top: 4%;
+				left: 3%;
+				width: 94%;
+				font-size: 35px;
+				text-shadow: 2px 2px 500px rgb(242, 144, 39);
+				font-family: "Alfa Slab One";
+				text-align: center;
+				color: rgb(219, 83, 15);
+			}
+
+			#courses{
+				font-size: 20px;
+				font-family: "Lato";
+				text-shadow: none;
+			}
+
+			#course{
+				margin-top: 20px;
+				font-size: 25px;
+				font-family: "Nunito";
+				text-align: left;
+				color: rgb(240, 84, 41);
+				text-shadow: none;
+			}
+
+			#courseDescription{
+				margin-left: 10%;
+				margin-top: 5px;
+				font-size: 20px;
+				font-family: "Nunito";
+				text-align: left;
+				text-shadow: none;
+				color: rgb(237, 105, 69);
+			}
+
+			#lottie{
+				opacity: 0;
+			}
+
+			#secondpage{
+				position: absolute;
+				top: 2070px;
+				left: 5vw;
+				width: 90vw;
+				height: 1000px;
+				background-color: rgb(247, 236, 208);
+				border: 3px solid rgb(222, 82, 40);
+				box-shadow: 0px 0px 15px rgb(222, 82, 40);
+				border-radius: 20px;
+				opacity: 1;
+				transition-property: opacity;
+				transition-duration: 1.5s;
+			}
+		}
+
+
+	</style>
+</head>
+
+<script type="text/javascript">
+		document.addEventListener("scroll", function(scroll){	
+			let laptop = true;
+			if (window.innerWidth < 600){
+				laptop = false;
+			}
+
+			if (window.pageYOffset < 350){
+				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
+				if (laptop){
+					head.style.top = "40vh"
+					head.style.left = "10vw"
+					start.style.top = "50vh"
+					start.style.right = "100vw"
+					start.style.transform = "translateX(" + 1 / 5 * window.pageYOffset + "vw)"
+				} else {
+					start.style.transform = "translateX(" + 2 / 5 * window.pageYOffset + "vw)"
+					start.style.top = "30vh"
+					start.style.right = "80vw"
+				}
+				firstpage.style.opacity = "0"
+			} else if (window.pageYOffset < 600){
+				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
+				firstpage.style.opacity = "0"
+			} else if(window.pageYOffset < 1000){
+				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
+				head.style.transition = "1s"
+				start.style.transition = "1s"
+				if (laptop){
+					head.style.top = "10px"
+					head.style.left = "30px"
+				} else {
+					head.style.left = "0px"
+				}
+				start.style.top = "-300px"
+				firstpage.style.transform = "translateY("+ window.pageYOffset + "px)"
+				setTimeout(()=>{
+					firstpage.style.opacity = "1"
+				} , 500)
+			}
+		})
+</script>
+
+<body>
+	<dotlottie-player id="lottiehead" src="https://lottie.host/1161991c-381a-4c5f-805c-296a6f2304a2/BeQ4lY1XUl.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw;" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
+	<div id="everything">
+		<div id="head">
+			Coding The Future
+		</div>		
+		<div id="start">
+			Dalton coding classes
+		</div>
+		<div id="scroll"></div>
+	</div>
+	<div id="firstpage">
+		<div id="forstudents">Classes
+			<div id="courses">Coding the Future currently offers two coding courses. These are one semester courses led by Dalton high schoolers for middle school students. Students who are interested in taking on a passion project will also have the oppurtunity to do so alongside a high school mentor.</div>
+			<div id="course">1. Web Development: HTML, CSS, JS</div>
+			<div id="courseDescription">In this course, students will learn how to code using the basic languages for web development. They will first learn how to use HTML elements and CSS styling to create a webpage. They will then implement javascript functions to make their websites come to life with interactive components, animations, and scrolling effects.</div>
+			<div id="course">2. Art and Games with Python</div>
+			<div id="courseDescription">In this course, students will learn how to make art and games using Python. They will start by experimenting with simple Python functions, and later move to using algorithms to make more intricate visuals.</div>
+		</div>
+		<dotlottie-player id="lottie" src="https://lottie.host/4c15beea-1b38-4771-a3bb-58c9e8d6e62b/aC1uFKkLra.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
+	</div>
+	<div id="secondpage">
+		<div id="forstudents">The Mission
+			<div id="courses">We are a club at Dalton where talented and motivated high school students came together to design two engaging classes aimed at introducing young students to computer programming.</div>
+			<div id="course">The Problem</div>
+			<div id="courseDescription">As middle school students we found ourselves using block code and other "kidified" versions of coding, but we were really more interested in something that felt more real -- coding languages that are actually used in the real world, and frameworks that are more versatile.</div>
+			<div id="course">Our Solution</div>
+			<div id="courseDescription">We are providing students with the oppurtunity we wish we had, allowing them to engage with coursework that is designed to be managable, but not dumbed down. Given the right instruction we know that middle school students are capable of understanding computer programming, and doing great things with it.</div>
+		</div>
+		<dotlottie-player id="lottie" src="https://lottie.host/e23c618c-f26b-4b1b-8ab3-7e0816583e68/RBth42WGXi.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
+	</div>
+</body>
+</html>
