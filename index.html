@@ -1,350 +1,283 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Display">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ultra">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-	<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Tutoring Program</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM+Serif+Display">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ultra">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
 
-	<title></title>
-	<style type="text/css">
-		@media (min-width: 600px) {
-			body{
-				background-color: rgb(245, 231, 196);
-				margin: 0px;
-			}
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: rgb(245, 231, 196);
+            overflow-x: hidden;
+        }
 
-			#lottiehead{
-				position: absolute;
-				left: 55vw;
-				top: 50px;
-			}
+        header {
+            background-color: rgb(231, 153, 80);
+            color: #ffe3bc;
+            padding: 20px;
+            font-family: "Press Start 2P";
+            box-shadow: 0 10px 20px rgb(239, 191, 145);
+        }
 
-			#head{
-				position: absolute;
-				left: 10vw;
-				top: 40vh;
-				font-family: "Ultra";
-				color: rgb(219, 83, 15);
-				font-size: 50px;
-			}
+        header h1 {
+            margin: 0;
+        }
 
-			#start{
-				position: absolute;
-				width: 30vw;
-				right: 130vw;
-				top: 50vh;
-				font-family: "Ultra";
-				color: rgb(219, 108, 53);
-				font-size: 30px;
-			}
+        nav ul {
+            list-style-type: none;
+        }
 
-			#scroll{
-				position: absolute;
-				height: 600px;
-				width: 300px;
-				top: 10000px;
-			}
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            font-family: "lato";
+        }
 
-			#everything{
-				position: absolute;
-				width: 100vw;
-				height: 10vh;
-				transform: translateY(10px);
-			}
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        main {
+            padding: 20px;
+            display: flex; /* Use flexbox for flexible layout */
+            flex-wrap: wrap; /* Allow items to wrap to next line */
+        }
 
-			#firstpage{
-				position: absolute;
-				top: 100px;
-				left: 5vw;
-				width: 40vw;
-				height: 700px;
-				background-color: rgb(247, 236, 208);
-				border: 3px solid rgb(242, 144, 39);
-				box-shadow: 0px 0px 15px rgb(242, 144, 39);
-				border-radius: 4vw;
-				opacity: 0;
-				transition-property: opacity;
-				transition-duration: 1.5s;
-			}
+        .description {
+            margin-right: 20px;
+            width: calc(max(300px, 45vw));
+            margin-left: 5vw;
+        }
 
-			#forstudents{
-				position: absolute;
-				top: 4%;
-				left: 3%;
-				width: 94%;
-				font-size: 35px;
-				text-shadow: 2px 2px 500px rgb(242, 144, 39);
-				font-family: "Alfa Slab One";
-				text-align: center;
-				color: rgb(219, 83, 15);
-			}
+        img {
+            width: calc(max(300px, 34vw));
+            height: auto;
+            padding: 30px;
+        }
 
-			#courses{
-				font-size: 20px;
-				font-family: "Lato";
-				text-shadow: none;
-			}
+        section {
+            flex: 100%;
+            margin-bottom: 30px;
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
 
-			#course{
-				margin-top: 20px;
-				font-size: 25px;
-				font-family: "Nunito";
-				text-align: left;
-				color: rgb(240, 84, 41);
-				text-shadow: none;
-			}
+        footer {
+            flex: 2;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
 
-			#courseDescription{
-				margin-left: 10%;
-				margin-top: 5px;
-				font-size: 20px;
-				font-family: "Nunito";
-				text-align: left;
-				text-shadow: none;
-				color: rgb(237, 105, 69);
-			}
+        .title{
+            font-family: "Arnhem Pro","Georgia","serif";
+            font-size: 40px;
+        }
 
-			#lottie{
-				position: absolute;
-				left: 50vw;
-				top: 50px;
-			}
+        .section-container{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(243, 211, 172);
+            box-shadow: -10px 10px 30px rgb(214, 187, 162);
+            width: 90vw;
+            padding: 5vw;
+            border-radius: 20px;
+            scale: 0.92;
+        }
 
-			#secondpage{
-				position: absolute;
-				top: 1710px;
-				left: 5vw;
-				width: 40vw;
-				height: 700px;
-				background-color: rgb(247, 236, 208);
-				border: 3px solid rgb(222, 82, 40);
-				box-shadow: 0px 0px 15px rgb(222, 82, 40);
-				border-radius: 4vw;
-				opacity: 1;
-				transition-property: opacity;
-				transition-duration: 1.5s;
-			}
+        .team-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
 
-			#register{
-				position: absolute;
-				top: 2500px;
-				left: 40vw;
-				font-family: "Ultra";
-				color: rgb(15, 117, 219);
-				font-size: 30px;
-			}
-		}
+        .item {
+            margin: 30px;
+            text-align: center;
+            padding: 10px;
+            background-color: rgb(245, 228, 207);
+            border-radius: 20px;
+        }
 
-		@media (max-width: 600px) {
-			body{
-				background-color: rgb(245, 231, 196);
-				margin: 0px;
-			}
+        .item img {
+            width: 80%;
+            height: auto;
+            border-radius: 50px;
+        }
 
-			#lottiehead{
-				opacity: 0;
-			}
+        .item p{
+            font-family: "lato";
+            margin-top: -5%;
+            margin-left: 10%;
+            width: 80%;
+        }
 
-			#head{
-				position: absolute;
-				width: 100vw;
-				top: 20vh;
-				font-family: "Ultra";
-				color: rgb(219, 83, 15);
-				font-size: 30px;
-				text-align: center;
-			}
-
-			#start{
-				position: absolute;
-				width: 150vw;
-				right: 80vw;
-				margin-left: 100vw;
-				top: 50vh;
-				font-family: "Ultra";
-				color: rgb(219, 108, 53);
-				font-size: 24px;
-			}
-
-			#scroll{
-				position: absolute;
-				height: 600px;
-				width: 300px;
-				top: 10000px;
-			}
-
-			#everything{
-				position: absolute;
-				width: 100vw;
-				height: 10vh;
-				transform: translateY(10px);
-			}
-
-			#firstpage{
-				position: absolute;
-				top: 100px;
-				left: 5vw;
-				width: 90vw;
-				height: 1000px;
-				background-color: rgb(247, 236, 208);
-				border: 3px solid rgb(242, 144, 39);
-				box-shadow: 0px 0px 15px rgb(242, 144, 39);
-				border-radius: 20px;
-				opacity: 0;
-				transition-property: opacity;
-				transition-duration: 1.5s;
-			}
-
-			#forstudents{
-				position: absolute;
-				top: 4%;
-				left: 3%;
-				width: 94%;
-				font-size: 35px;
-				text-shadow: 2px 2px 500px rgb(242, 144, 39);
-				font-family: "Alfa Slab One";
-				text-align: center;
-				color: rgb(219, 83, 15);
-			}
-
-			#courses{
-				font-size: 20px;
-				font-family: "Lato";
-				text-shadow: none;
-			}
-
-			#course{
-				margin-top: 20px;
-				font-size: 25px;
-				font-family: "Nunito";
-				text-align: left;
-				color: rgb(240, 84, 41);
-				text-shadow: none;
-			}
-
-			#courseDescription{
-				margin-left: 10%;
-				margin-top: 5px;
-				font-size: 20px;
-				font-family: "Nunito";
-				text-align: left;
-				text-shadow: none;
-				color: rgb(237, 105, 69);
-			}
-
-			#lottie{
-				opacity: 0;
-			}
-
-			#secondpage{
-				position: absolute;
-				top: 2070px;
-				left: 5vw;
-				width: 90vw;
-				height: 1000px;
-				background-color: rgb(247, 236, 208);
-				border: 3px solid rgb(222, 82, 40);
-				box-shadow: 0px 0px 15px rgb(222, 82, 40);
-				border-radius: 20px;
-				opacity: 1;
-				transition-property: opacity;
-				transition-duration: 1.5s;
-			}
-
-			#register{
-				position: absolute;
-				top: 3150px;
-				left: 20vw;
-				font-family: "Ultra";
-				color: rgb(15, 76, 219);
-				font-size: 30px;
-			}
-		}
-
-
-	</style>
+        @media screen and (max-width: 600px) {
+            
+            .team-container {
+                display: grid;
+                grid-template-columns: 1fr;
+            }   
+        }
+    </style>
 </head>
 
-<script type="text/javascript">
-		document.addEventListener("scroll", function(scroll){	
-			let laptop = true;
-			if (window.innerWidth < 600){
-				laptop = false;
-			}
-
-			if (window.pageYOffset < 350){
-				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
-				if (laptop){
-					head.style.top = "40vh"
-					head.style.left = "10vw"
-					start.style.top = "50vh"
-					start.style.right = "100vw"
-					start.style.transform = "translateX(" + 1 / 5 * window.pageYOffset + "vw)"
-				} else {
-					start.style.transform = "translateX(" + 2 / 5 * window.pageYOffset + "vw)"
-					start.style.top = "30vh"
-					start.style.right = "80vw"
-				}
-				firstpage.style.opacity = "0"
-			} else if (window.pageYOffset < 600){
-				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
-				firstpage.style.opacity = "0"
-			} else if(window.pageYOffset < 1000){
-				everything.style.transform = "translateY("+ window.pageYOffset + "px)"
-				head.style.transition = "1s"
-				start.style.transition = "1s"
-				if (laptop){
-					head.style.top = "10px"
-					head.style.left = "30px"
-				} else {
-					head.style.left = "0px"
-				}
-				start.style.top = "-300px"
-				firstpage.style.transform = "translateY("+ window.pageYOffset + "px)"
-				setTimeout(()=>{
-					firstpage.style.opacity = "1"
-				} , 500)
-			}
-		})
-</script>
-
 <body>
-	<dotlottie-player id="lottiehead" src="https://lottie.host/1161991c-381a-4c5f-805c-296a6f2304a2/BeQ4lY1XUl.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw;" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
-	<div id="everything">
-		<div id="head">
-			Coding The Future
-		</div>		
-		<div id="start">
-			Dalton coding classes
-		</div>
-		<div id="scroll"></div>
-	</div>
-	<div id="firstpage">
-		<div id="forstudents">Classes
-			<div id="courses">Coding the Future currently offers two coding courses. These are one semester courses led by Dalton high schoolers for middle school students. Students who are interested in taking on a passion project will also have the oppurtunity to do so alongside a high school mentor.</div>
-			<div id="course">1. Web Development: HTML, CSS, JS</div>
-			<div id="courseDescription">In this course, students will learn how to code using the basic languages for web development. They will first learn how to use HTML elements and CSS styling to create a webpage. They will then implement javascript functions to make their websites come to life with interactive components, animations, and scrolling effects.</div>
-			<div id="course">2. Art and Games with Python</div>
-			<div id="courseDescription">In this course, students will learn how to make art and games using Python. They will start by experimenting with simple Python functions, and later move to using algorithms to make more intricate visuals.</div>
-		</div>
-		<dotlottie-player id="lottie" src="https://lottie.host/4c15beea-1b38-4771-a3bb-58c9e8d6e62b/aC1uFKkLra.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
-	</div>
-	<div id="secondpage">
-		<div id="forstudents">The Mission
-			<div id="courses">We are a club at Dalton where talented and motivated high school students came together to design two engaging classes aimed at introducing young students to computer programming.</div>
-			<div id="course">The Problem</div>
-			<div id="courseDescription">As middle school students we found ourselves using block code and other "kidified" versions of coding, but we were really more interested in something that felt more real -- coding languages that are actually used in the real world, and frameworks that are more versatile.</div>
-			<div id="course">Our Solution</div>
-			<div id="courseDescription">We are providing students with the oppurtunity we wish we had, allowing them to engage with coursework that is designed to be managable, but not dumbed down. Given the right instruction we know that middle school students are capable of understanding computer programming, and doing great things with it.</div>
-		</div>
-		<dotlottie-player id="lottie" src="https://lottie.host/e23c618c-f26b-4b1b-8ab3-7e0816583e68/RBth42WGXi.json" background="transparent" speed="0.6" style="width: 40vw; height: 40vw" direction="1" mode="bounce" intermission="1s" loop autoplay></dotlottie-player>	
-	</div>
-	<a id="register" href="https://forms.gle/gZ7NH1ezgBx823Jp7">Register Here!</a>
+    <header>
+        <h1>Coding The Future</h1>
+    </header>
+
+    <main>
+        <div class="description">
+            <br><br><br>
+            <h1 class="title">Student-Student CS Tutoring</h1>
+            <br>
+            <p>Coding the Future, is a student led tutoring program that offers a free education in computer science to learners
+            around the world. <br><br> We connect high school and university students experienced in computer science to other
+            students interested in learning or advancing their skills in computer science. The support this program provides can
+            range from teaching basic topics to consulting on complicated projects. <br><br> Every tutor working with Coding the Future has been interviewed and vetted to make sure that they will be a dedicated
+            and effective teacher. Our tutors are committed to making every student feel comfortable and engaged, and spread the joy of computer science.
+            <br><br>
+            If you are interested in enrolling in Coding the Future as a tutee you can fill out <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
+                form</a>. And if you are interested
+            in joining Coding the Future as a tutor you can apply with <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScSqARppSR7S9Ukoo9ujH6P1_g1I939yZpv68dVVd4WEGN1Pg/viewform">this
+                form</a>.
+            </p>
+        </div>
+        <img style="margin-top: 30px;" src="computer.png" alt="computer">
+
+        <div class="section-container">
+            <h1>Our Three Core Values</h1>
+
+            <section id="effective">
+                <h2>Effective Tutoring</h2>
+                <p>
+                    Our tutors are interviewed and vetter to make sure that they will be effective teachers. They are able to
+                    explain concepts in a way that is easy to understand
+                    and can provide advice on how to succeed in computer science. Additionally, we have a large network of tutors
+                    with a wide range of expertise, so we can match
+                    students with a tutor who is well suited to help them.
+                </p>
+            </section>
+
+            <section id="free">
+                <h2>Accessibiltiy</h2>
+                <p>Our mission is to make computer science fun and accessible. This means the tutoring program is completely free!
+                    We believe that everyone should have the opportunity to learn computer science, regardless of their financial
+                    situation.
+                    We are able to offer this service for free because our tutors are student volunteers who are passionate about
+                    computer science and teaching.
+                    Our tutors are high school and university students who are eager to share their knowledge and help others learn.
+                </p>
+                </p>
+            </section>
+
+            <section id="students">
+                <h2>Student Leadership</h2>
+                <p> Coding the future is a program entirely run by students. 
+                    Student-student tutoring means that the tutors and tutees are both students, allowing for our tutors to be able
+                    to better relate to the tutees. They are able explain concepts in a way that is easy to understand and can provide advice
+                    on how to succeed in computer science. </p>
+            </section>
+        </div>
+        
+        <div class="section-container">
+            <h1>More About Our Program</h1>
+            <section id="format">
+                <h2>Tutoring Format</h2>
+                <p>
+                    Coding the Future offers one-on-one tutoring online tutoring. The frequency and length of tutoring sessions is up to the tutee and tutor to decide, 
+                    however we suggest weekly meetings for half an hour to an hour.
+                </p>
+            </section>
+            <section id="what">
+                <h2>What We Tutor</h2>
+                <p>
+                    We offer tutoring in a variety of computer science topics, including
+                    Python, Java, C++, Arduino, FTC Robotics, Algorithms, Web Engineering, Machine Learning, Cyber Security, Competitive
+                    Programming, and more. Tutors are able to teach students these topics comprehensively, and also help tutees develop passion projects.
+                </p>
+            </section>
+            <section id="reputation">
+                <h2>
+                    Our Reputation
+                </h2>
+                <p>
+                    Our program is well established and has a reputation for providing high quality tutoring. We have tutees and tutors
+                    from five different countries, and have helped dozens of students improve their computer science skills. Our tutors
+                    are very experienced, in fact some of them coded this website!
+                </p>
+            </section>
+            <section id="tutees">
+                <h2>Sign Up To Get A Tutor</h2>
+                <p>
+                    If you are interested in enrolling in Coding the Future as a tutee you can fill out <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
+                        form</a>.
+                    Upon submission of the form, you will be contacted by a member of the Coding the Future team to match you with a tutor.
+                </p>
+            </section>
+            <section id="tutors">
+                <h2>Apply To Become A Tutor</h2>
+                <p>
+                    We are always looking for new tutors to join our team. If you are a student who is passionate about computer
+                    science and teaching, we would love to have you on board!
+                    If you are interested in joining Coding the Future as a tutor you can apply by filling out <a
+                        href="https://docs.google.com/forms/d/e/1FAIpQLScSqARppSR7S9Ukoo9ujH6P1_g1I939yZpv68dVVd4WEGN1Pg/viewform">this
+                        form</a>.
+
+                    Upon submission of the form, you will be contacted by a member of the Coding the Future team to schedule an interview.
+                </p>
+            </section>
+        </div>
+
+        <div class="section-container">
+            <h1>Our Team</h1>
+            <div class="team-container">
+                <div class="item">
+                    <img src="alex.jpeg" alt="Alex Berman">
+                    <p>Co-Founder and Director of Global Operations</p>
+                </div>
+                <div class="item">
+                    <img src="shiv.jpeg" alt="Shiv Topali">
+                    <p>Co-Founder and Director of Curriculum Development</p>
+                </div>
+                <div class="item">
+                    <img src="shreyas.jpeg" alt="Shreyas Rajaram">
+                    <p>Junior Program Director</p>
+                </div>
+                <!-- Add more items as needed -->
+            </div>
+        
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Coding The Future</p>
+    </footer>
 </body>
+
 </html>
