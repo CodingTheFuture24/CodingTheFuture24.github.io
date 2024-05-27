@@ -203,9 +203,13 @@
             box-shadow: -10px 10px 30px rgb(214, 187, 162);
             padding: 20px;
             justify-content: center;
-            width: 90vw;
+            width: 100%;
             scale: 0.92;
             transition: 0.2s;
+        }
+
+        svg{
+            width: 100%;
         }
 
         #map:hover{
@@ -364,11 +368,22 @@
             "COL": 1,
             "CHN": 1,
             "NPL": 1
-            // Add more countries and their values here
         };
 
         const colorScale = d3.scaleSequential(d3.interpolateBlues)
             .domain([0, d3.max(Object.values(data))]);
+
+        function resize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            svg.attr("viewBox", `0 0 ${width} ${height}`);
+            projection.scale(width / 6.5).translate([width / 2, height / 2]);
+            svg.selectAll("path").attr("d", path);
+        }
+
+        window.onload = resize;
+
+        window.addEventListener("resize", resize);
 
         d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson").then(world => {
             svg.append("g")
