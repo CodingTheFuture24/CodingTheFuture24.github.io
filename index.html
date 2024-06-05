@@ -302,16 +302,6 @@
                     Programming, and more. Tutors are able to teach students these topics comprehensively, and also help tutees develop passion projects.
                 </p>
             </section>
-            <section id="reputation">
-                <h2>
-                    Our Reputation
-                </h2>
-                <p>
-                    Our program is well established and has a reputation for providing high quality tutoring. We have tutees and tutors
-                    from around the world, and have helped dozens of students improve their computer science skills. Our tutors
-                    are very experienced, in fact some of them coded this website!
-                </p>
-            </section>
             <section id="tutees">
                 <h2>Sign Up To Get A Tutor</h2>
                 <p>
@@ -336,7 +326,8 @@
         </div>
     
     <div class="graph-container">
-        <h1>Where Our Tutors And Tutees Are From</h1>
+        <h1 style="margin-top: 30px;">Tutors And Tutees Around The World</h1>
+        <section><p style="text-align: center;">Check out our interactive map to see where the tutors and tees who have signed up for our program are from</p></section>
         <div id="map"></div>
         <div class="tooltip" id="tooltip" style="opacity:0;"></div>
         <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -361,13 +352,12 @@
 
         const data = {
             "USA": 25,
-            "IND": 2,
+            "IND": 4,
             "ITA": 1,
-            "EGY": 8,
+            "EGY": 6,
+            "PAK": 1,
             "BRA": 1,
-            "COL": 1,
-            "CHN": 1,
-            "NPL": 1
+            "COL": 2,
         };
 
         const colorScale = d3.scaleSequential(d3.interpolateBlues)
@@ -399,15 +389,14 @@
                 .attr("stroke", "gray")
                 .on("mouseover", function (event, d) {
                     const countryName = d.properties.name;
-                    console.log(d)
+                    console.log(data[d.id]>0)
                     const value = data[d.id] || 0;
                     tooltip.transition().duration(200).style("opacity", .9);
-                    value > 0 ?
+                    value == 1 ?
                     tooltip.html(`${countryName}: ${value} person`)
                         .style("left", (event.pageX + 5) + "px")
                         .style("top", (event.pageY - 28) + "px")
-                    :
-                    tooltip.html(`${countryName}: ${value} people`)
+                    : tooltip.html(`${countryName}: ${value} people`)
                         .style("left", (event.pageX + 5) + "px")
                         .style("top", (event.pageY - 28) + "px");
                 })
