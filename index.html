@@ -48,11 +48,14 @@
             opacity: 0.7;
             color: #ffe9cd;
             padding: 20px;
-            font-family: "Press Start 2P";
+            /* font-family: "Press Start 2P"; */
+            /* font-family: "sans-serif"; */
         }
 
         header h1 {
             margin: 0;
+            font-size: 40px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
 
         nav ul {
@@ -111,23 +114,77 @@
         }
 
         .title{
-            font-family: "Arnhem Pro","Georgia","serif";
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 40px;
+        }
+
+        .section-grid{
+            display: flex;
+            flex-wrap: wrap;
+            width: 94vw;
+            margin-left: 3vw;
+            margin-bottom: 50px;
+        }
+
+        .section-item{
+            padding: 20px;
+            margin: 1vw;
+            background-color: #ffdb8e;
+            border-radius: 20px;
+            box-shadow: -10px 10px 30px -20px rgb(200, 200, 200);
+            color: #493a27;
+            flex: 1 1 25vw; /* Grow, shrink, and set base width */
+            min-width: 250px; /* Ensures no column is less than 250px */
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .section-item:hover{
+            transition: 0.2s;
+            scale: 1.02;
+        }
+
+        .section-item h2{
+            font-family: "Lato";
+            font-size: 35px;
+            margin: 15px;
+            margin-top: 0px;
+        }
+
+        .section-item p{
+            font-family: "lato";
+            font-size: 18px;
+            margin: 15px;
+        }
+
+        .section-head{
+            width: 100%;
+            text-align: center;
+            padding: 80px;
+            font-size: 50px;
+            font-family: "Lato";
+        }
+
+        .graph-container h1{
+            width: 100%;
+            text-align: center;
+            padding: 50px;
+            font-size: 40px;
+            font-family: "Lato";
         }
 
         .section-container{
             display: flex;
             flex-wrap: wrap;
             margin-top: 20px;
-            background-color: rgb(255, 255, 255);
-            /* background: linear-gradient(155deg, rgb(243, 211, 172), rgb(248, 204, 151)); */
+            background-color: #ffdb8e;
             box-shadow: -10px 10px 30px -20px rgb(200, 200, 200);
             width: 90vw;
             padding: 5vw;
-            border-radius: 4px;
+            border-radius: 20px;
             scale: 0.92;
             transition: 0.2s;
-            border: 0.2px solid rgb(86, 86, 86);
+            color: #493a27;
         }
 
         .section-container:hover{
@@ -136,16 +193,21 @@
         }
 
         .team-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
         }
 
         .item {
-            margin: 30px;
+            margin: 20px;
             text-align: center;
             padding: 10px;
-            background-color: rgb(238, 238, 238);
+            /* background-color: rgb(238, 238, 238); */
             border-radius: 5px;
+            flex: 1 1 25vw; /* Grow, shrink, and set base width */
+            min-width: 250px; /* Ensures no column is less than 250px */
+            max-width: 30vw;
+            box-sizing: border-box;
         }
 
         .item img {
@@ -214,15 +276,16 @@
 
         #map{
             display: flex;
-            border: 1px solid black;
+            color: #493a27;
+            font-family: "Lato";
             border-radius: 20px;
-            background: linear-gradient(155deg, rgb(243, 211, 172), rgb(248, 204, 151));
-            box-shadow: -10px 10px 30px rgb(214, 187, 162);
+            background-color: #ffce8e;
             padding: 20px;
             justify-content: center;
             width: 100%;
             scale: 0.92;
             transition: 0.2s;
+            flex-wrap: wrap;
         }
 
         svg{
@@ -268,85 +331,41 @@
         </div>
         <img style="margin-top: 70px;" src="computer.png" alt="computer">
         </section>
-        <div class="section-container">
-            <h1>Our Three Core Values</h1>
+        <h2 class="section-head">Our Three Core Values</h2>
+        <div class="section-grid">
 
-            <section id="effective">
+            <section class="section-item" id="effective">
                 <h2>Effective Tutoring</h2>
                 <p>
-                    Our tutors are interviewed and vetter to make sure that they will be effective teachers. They are able to
-                    explain concepts in a way that is easy to understand
-                    and can provide advice on how to succeed in computer science. Additionally, we have a large network of tutors
+                    Tutors are vetted and interviewed to make sure they are able to
+                    teach concepts effectively. We have a large network of tutors
                     with a wide range of expertise, so we can match
                     students with a tutor who is well suited to help them.
                 </p>
             </section>
 
-            <section id="free">
+            <section class="section-item" id="free">
                 <h2>Accessibiltiy</h2>
-                <p>Our mission is to make computer science fun and accessible. This means the tutoring program is completely free!
+                <p> Our tutoring program is completely free!
                     We believe that everyone should have the opportunity to learn computer science, regardless of their financial
                     situation.
-                    We are able to offer this service for free because our tutors are student volunteers who are passionate about
-                    computer science and teaching.
-                    Our tutors are high school and university students who are eager to share their knowledge and help others learn.
                 </p>
                 </p>
             </section>
 
-            <section id="students">
+            <section class="section-item" id="students">
                 <h2>Student Leadership</h2>
-                <p> Coding the future is a program entirely run by students. 
+                <p> Coding The Future is a program entirely run by students. 
                     Student-student tutoring means that the tutors and tutees are both students, allowing for our tutors to be able
-                    to better relate to the tutees. They are able explain concepts in a way that is easy to understand and can provide advice
-                    on how to succeed in computer science. </p>
+                    to better relate to the tutees. </p>
             </section>
         </div>
         
-        <div class="section-container">
-            <h1>More About Our Program</h1>
-            <section id="format">
-                <h2>Tutoring Format</h2>
-                <p>
-                    Coding the Future offers one-on-one tutoring online tutoring. The frequency and length of tutoring sessions is up to the tutee and tutor to decide, 
-                    however we suggest weekly meetings for half an hour to an hour.
-                </p>
-            </section>
-            <section id="what">
-                <h2>What We Tutor</h2>
-                <p>
-                    We offer tutoring in a variety of computer science topics, including
-                    Python, Java, C++, Arduino, FTC Robotics, Algorithms, Web Engineering, Machine Learning, Cyber Security, Competitive
-                    Programming, and more. Tutors are able to teach students these topics comprehensively, and also help tutees develop passion projects.
-                </p>
-            </section>
-            <section id="tutees">
-                <h2>Sign Up To Get A Tutor</h2>
-                <p>
-                    If you are interested in enrolling in Coding the Future as a tutee you can fill out <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
-                        form</a>.
-                    Upon submission of the form, you will be contacted by a member of the Coding the Future team to match you with a tutor.
-                </p>
-            </section>
-            <section id="tutors">
-                <h2>Apply To Become A Tutor</h2>
-                <p>
-                    We are always looking for new tutors to join our team. If you are a student who is passionate about computer
-                    science and teaching, we would love to have you on board!
-                    If you are interested in joining Coding the Future as a tutor you can apply by filling out <a
-                        href="https://docs.google.com/forms/d/e/1FAIpQLScSqARppSR7S9Ukoo9ujH6P1_g1I939yZpv68dVVd4WEGN1Pg/viewform">this
-                        form</a>.
-
-                    Upon submission of the form, you will be contacted by a member of the Coding the Future team to schedule an interview.
-                </p>
-            </section>
-        </div>
     
     <div class="graph-container">
-        <h1 style="margin-top: 30px;">Tutors And Tutees Around The World</h1>
-        <section><p style="text-align: center;">Check out our interactive map to see where our tutors and tutees are from</p></section>
-        <div id="map"></div>
+        <div id="map">
+            <h1 style="margin-top: 30px;">Tutors And Tutees Around The World</h1>
+        </div>
         <div class="tooltip" id="tooltip" style="opacity:0;"></div>
         <script src="https://d3js.org/d3.v6.min.js"></script>
     </div>
@@ -407,7 +426,6 @@
                 .attr("stroke", "gray")
                 .on("mouseover", function (event, d) {
                     const countryName = d.properties.name;
-                    console.log(data[d.id]>0)
                     const value = data[d.id] || 0;
                     tooltip.transition().duration(200).style("opacity", .9);
                     value == 1 ?
@@ -425,29 +443,87 @@
     </script>
 
     <div class="section-container">
+        <h1>More About Our Program</h1>
+        <section id="format">
+            <h2>Tutoring Format</h2>
+            <p>
+                Coding the Future offers one-on-one tutoring online tutoring. The frequency and length of tutoring sessions
+                is up to the tutee and tutor to decide,
+                however we suggest weekly meetings for half an hour to an hour.
+            </p>
+        </section>
+        <section id="what">
+            <h2>What We Tutor</h2>
+            <p>
+                We offer tutoring in a variety of computer science topics, including
+                Python, Java, C++, Arduino, FTC Robotics, Algorithms, Web Engineering, Machine Learning, Cyber Security,
+                Competitive
+                Programming, and more. Tutors are able to teach students these topics comprehensively, and also help tutees
+                develop passion projects.
+            </p>
+        </section>
+        <section id="how">
+            <h2>How is it free?</h2>
+            <p> We are able to offer this service for free because our tutors are student volunteers who are passionate
+                about computer science and teaching.
+                Our tutors are high school and university students who are eager to share their knowledge and help others
+                learn.
+            </p>
+        </section>
+        <section id="tutees">
+            <h2>Sign Up To Get A Tutor</h2>
+            <p>
+                If you are interested in enrolling in Coding the Future as a tutee you can fill out <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
+                    form</a>.
+                Upon submission of the form, you will be contacted by a member of the Coding the Future team to match you
+                with a tutor.
+            </p>
+        </section>
+        <section id="tutors">
+            <h2>Apply To Become A Tutor</h2>
+            <p>
+                We are always looking for new tutors to join our team. If you are a student who is passionate about computer
+                science and teaching, we would love to have you on board!
+                If you are interested in joining Coding the Future as a tutor you can apply by filling out <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLScSqARppSR7S9Ukoo9ujH6P1_g1I939yZpv68dVVd4WEGN1Pg/viewform">this
+                    form</a>.
+    
+                Upon submission of the form, you will be contacted by a member of the Coding the Future team to schedule an
+                interview.
+            </p>
+        </section>
+    </div>
+
+    <div class="section-container">
         <h1>Our Team</h1>
         <div class="team-container">
             <div class="item">
                 <img src="alex.jpeg" alt="Alex Berman">
-                <h3>Alex Berman - USA</h3>
+                <h3>Alex Berman - NY, USA</h3>
                 <p>Co-Founder and President</p>
             </div>
             <div class="item">
                 <img src="shiv.jpeg" alt="Shiv Topali">
-                <h3>Shiv Topali - USA</h3>
-                <p>Co-Founder and Director of Curriculum Development</p>
+                <h3>Shiv Topali - NY, USA</h3>
+                <p>Co-Founder and Director</p>
             </div>
             <div class="item">
                 <img src="shreyas.jpeg" alt="Shreyas Rajaram">
-                <h3>Shreyas Rajaram - USA</h3>
-                <p>Junior Program Director</p>
-            </div>
-            <!-- <div class="item">
-                <img src="shreyas.jpeg" alt="Jana Yehia">
-                <h3>Jana Yehia - Egypt</h3>
-                <p>Regional Director (Egypt)</p>
+                <h3>Shreyas Rajaram - NY, USA</h3>
+                <p>Director</p>
             </div>
             <div class="item">
+                <img src="ollie.png" alt="Oliver Miranda">
+                <h3>Oliver Miranda - MI, USA</h3>
+                <p>Director</p>
+            </div>
+            <!-- <div class="item">
+                <img src="profile.png" alt="Jana Yehia">
+                <h3>Jana Yehia - Egypt</h3>
+                <p>Junior Director</p>
+            </div> -->
+            <!-- <div class="item">
                 <img src="shreyas.jpeg" alt="Tomaz Maia Suller">
                 <h3>Tomaz Maia Suller - Brazil</h3>
                 <p>Curriculum Developer</p>
