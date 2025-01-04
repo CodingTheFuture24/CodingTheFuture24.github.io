@@ -34,6 +34,36 @@
             overflow-x: hidden;
         }
 
+        .enrollment {
+            /* position: fixed; */
+            background-color: #ffffff8e;
+            border-radius: 20px;
+            color:  rgb(221, 129, 0);
+            text-align: center;
+            padding: 1vw;
+            backdrop-filter: blur(13px);
+            left: 5vw;
+            width: 100vw;
+            font-size: 20px;
+            text-decoration: underline;
+            font-weight: bold;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            z-index: 1000;
+            scale: 1;
+            transition: 0.5s;
+        }
+
+        .enrollment a {
+            color: rgb(221, 129, 0);
+            text-decoration: underline;
+            transition: 0.5s;
+        }
+
+        .enrollment :hover {
+            scale: 1.05;
+            transition: 0.5s;
+        }
+
         .section1 {
             background-color: rgb(245, 231, 196);
             padding: 50px;
@@ -219,12 +249,15 @@
             flex: 1 1 25vw; /* Grow, shrink, and set base width */
             min-width: 250px; /* Ensures no column is less than 250px */
             max-width: 30vw;
+            min-height: 250px;
+            max-height: 30vw;
             box-sizing: border-box;
         }
 
         .item img {
             width: 80%;
-            height: auto;
+            height: 70%;
+            /* height: auto; */
             border-radius: 50px;
         }
 
@@ -312,6 +345,11 @@
 </head>
 
 <body>
+    <div class="enrollment">
+        <div>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">Enrollment for our February cohort is now open!</a>
+        </div>
+    </div>
     <header>
         <h1>Coding The Future</h1>
     </header>
@@ -326,7 +364,7 @@
                 Coding the Future is a student-led program offering free coding classes and one-on-one tutoring to students of all ages
                 around the world.
                 <br><br>
-                Coding classes are run for around 4 months three times a year, beginning in September, January, and June. Classes are
+                Coding classes are run for around 4 months three times a year, beginning in September, February, and June. Classes are
                 once a week on zoom and are 40 minutes long, broken up into 20 minutes for instruction and 20 minutes for students to pursue
                 passion projects with help from instructors.
                 <br><br>
@@ -367,7 +405,7 @@
             </section>
 
             <section class="section-item" id="free">
-                <h2>Accessibiltiy</h2>
+                <h2>Accessibilty</h2>
                 <p> Our program is completely free!
                     We believe that everyone should have the opportunity to learn computer science, regardless of their financial
                     situation.
@@ -417,6 +455,7 @@
             "PAK": 1,
             "BRA": 1,
             "COL": 2,
+            "DEU": 1
         };
 
         const colorScale = d3.scaleSequential(d3.interpolateBlues)
@@ -469,7 +508,7 @@
         <section id="classes">
             <h2>Classes</h2>
             <p>
-            Coding classes are run for around 4 months three times a year, beginning in September, January, and June. Classes are
+            Coding classes are run for around 4 months three times a year, beginning in September, February, and June. Classes are
             once a week and are 40 minutes long, broken up into 20 minutes for instruction and 20 minutes for students to pursue
             passion projects with help from instructors. In the coding classes, high school and university students provide
             instruction to groups of 5-10 students on a topic of common interest. These classes are aimed at middle and high school
@@ -477,7 +516,7 @@
             availability, and coding language. Please fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
             form</a> to demonstrate what you would be interested in learning and
             when you could meet. Class times will be determined by student availability. When filling out the form you will automatically be considered for enrollment for the 
-            next cohort (September, January, or June), unless otherwise noted.
+            next cohort (September, February, or June), unless otherwise noted.
             </p>
         </section>
         <section id="format">
@@ -539,9 +578,9 @@
                 <p>Co-Founder and President</p>
             </div>
             <div class="item">
-                <img src="shiv.jpeg" alt="Shiv Topali">
+                <img src="shiv.jpg" alt="Shiv Topali">
                 <h3>Shiv Topali - NY, USA</h3>
-                <p>Co-Founder and Director</p>
+                <p>Co-Founder and Vice-President</p>
             </div>
             <div class="item">
                 <img src="shreyas.jpeg" alt="Shreyas Rajaram">
@@ -549,31 +588,35 @@
                 <p>Director</p>
             </div>
             <div class="item">
-                <img src="ollie.png" alt="Oliver Miranda">
-                <h3>Oliver Miranda - MI, USA</h3>
+                <img src="ollie.png" alt="Oliver Maranda">
+                <h3>Oliver Maranda - MI, USA</h3>
                 <p>Director</p>
             </div>
             <div class="item">
                 <img src="shreya.png" alt="Shreya Ranjan">
                 <h3>Shreya Ranjan - NY, USA</h3>
+                <p>Director of Outreach</p>
+            </div>
+            <div class="item">
+                <img src="jaanvi.jpg" alt="Jaanvi Chirimar">
+                <h3>Jaanvi Chirimar - NY, USA</h3>
                 <p>Director</p>
             </div>
             <div class="item">
-                <!-- spacer -->
+                <img src="hitanshee.png" alt="hitanshee Sheth">
+                <h3>Hitanshee Sheth - NJ, USA</h3>
+                <p>Director of Curriculum Development</p>
+            </div>
+            <div class="item">
                 <img src="shreya.png" alt="Shreya Ranjan" style="opacity: 0">
                 <h3></h3>
                 <p></p>
             </div>
-            <!-- <div class="item">
-                <img src="profile.png" alt="Jana Yehia">
-                <h3>Jana Yehia - Egypt</h3>
-                <p>Junior Director</p>
-            </div> -->
-            <!-- <div class="item">
-                <img src="shreyas.jpeg" alt="Tomaz Maia Suller">
-                <h3>Tomaz Maia Suller - Brazil</h3>
-                <p>Curriculum Developer</p>
-            </div> -->
+            <div class="item">
+                <img src="shreya.png" alt="Shreya Ranjan" style="opacity: 0">
+                <h3></h3>
+                <p></p>
+            </div> 
         </div>
         <div class="team-container2">
             
