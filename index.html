@@ -351,6 +351,226 @@
             transition: 0.2s;
             scale: 0.95;
         }
+
+        @keyframes tonext {
+        75% {
+            left: 0;
+        }
+        95% {
+            left: 100%;
+        }
+        98% {
+            left: 100%;
+        }
+        99% {
+            left: 0;
+        }
+        }
+
+        @keyframes tostart {
+        75% {
+            left: 0;
+        }
+        95% {
+            left: -300%;
+        }
+        98% {
+            left: -300%;
+        }
+        99% {
+            left: 0;
+        }
+        }
+
+        @keyframes snap {
+        96% {
+            scroll-snap-align: center;
+        }
+        97% {
+            scroll-snap-align: none;
+        }
+        99% {
+            scroll-snap-align: none;
+        }
+        100% {
+            scroll-snap-align: center;
+        }
+        }
+
+
+
+        *::-webkit-scrollbar {
+        width: 0;
+        }
+
+        *::-webkit-scrollbar-track {
+        background: transparent;
+        }
+
+        *::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: none;
+        }
+
+        * {
+        -ms-overflow-style: none;
+        }
+
+        ol, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        }
+
+        .carousel {
+        position: relative;
+        height: 50vw;  
+        margin-top: 100px;
+        /* padding-top: 1000px; */
+        filter: drop-shadow(0 0 10px #0003);
+        perspective: 100px;
+        margin-right: 10vw;
+        margin-left: 10vw;
+        }
+
+        .carousel__viewport {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        counter-reset: item;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        }
+
+        .carousel__slide {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        background-color:rgb(251, 239, 221);
+        counter-increment: item;
+        }
+
+        .carousel__slide:before {
+        content: counter(item);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%,-40%,70px);
+        color: #fff;
+        font-size: 2em;
+        }
+
+        .carousel__snapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+        }
+
+        @media (hover: hover) {
+        .carousel__snapper {
+            animation-name: tonext, snap;
+            animation-timing-function: ease;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+        }
+
+        .carousel__slide:last-child .carousel__snapper {
+            animation-name: tostart, snap;
+        }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+        .carousel__snapper {
+            animation-name: none;
+        }
+        }
+
+        .carousel:hover .carousel__snapper,
+        .carousel:focus-within .carousel__snapper {
+        animation-name: none;
+        }
+
+        .carousel__navigation {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        }
+
+        .carousel__navigation-list,
+        .carousel__navigation-item {
+        display: inline-block;
+        }
+
+        .carousel__navigation-button {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: #333;
+        background-clip: content-box;
+        border: 0.25rem solid transparent;
+        border-radius: 50%;
+        font-size: 0;
+        transition: transform 0.1s;
+        }
+
+        .carousel::before,
+        .carousel::after,
+        .carousel__prev,
+        .carousel__next {
+        position: absolute;
+        top: 0;
+        margin-top: 37.5%;
+        width: 4rem;
+        height: 4rem;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        font-size: 0;
+        outline: 0;
+        }
+
+        .carousel::before,
+        .carousel__prev {
+        left: -1rem;
+        }
+
+        .carousel::after,
+        .carousel__next {
+        right: -1rem;
+        }
+
+        .carousel::before,
+        .carousel::after {
+        content: '';
+        z-index: 1;
+        background-color: #333;
+        background-size: 1.5rem 1.5rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        color: #fff;
+        font-size: 2.5rem;
+        line-height: 4rem;
+        text-align: center;
+        pointer-events: none;
+        }
+
+        .carousel::before {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,50 80,100 80,0' fill='%23fff'/%3E%3C/svg%3E");
+        }
+
+        .carousel::after {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
+        }
+
     </style>
 </head>
 
@@ -415,6 +635,62 @@
             </div>
             <img style="margin-top: 70px;" src="computer.png" alt="computer">
         </section>
+
+<!-- <h1>CSS-only Carousel</h1>
+
+<p>This carousel is created with HTML and CSS only.</p> -->
+<h1 style="margin-top: 50px; margin-bottom: -50px; width: 100%; text-align: center;">Check out some of the amazing projects our students made!</h1>
+<section class="carousel" aria-label="Gallery">
+    <ol class="carousel__viewport">
+        <li id="carousel__slide1" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper" style="height: auto;">
+                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                Raphael B coded his own 2048 game in P5.js</p>
+                <img src="2048.png" alt="2048 game" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
+                <a href="#carousel__slide5" class="carousel__prev">Go to last slide</a>
+                <a href="#carousel__slide2" class="carousel__next">Go to next slide</a>
+            </div>
+        </li>
+        <li id="carousel__slide2" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper">
+                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                Anjali S made a grade calculator in Python</p>
+                <img src="gradecalculator.png" alt="Grade Calculator" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
+            </div>
+            <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide3" class="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide3" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper">
+                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                Gerard S made a 2 player fighting game in p5.js</p>
+                <img src="battlegame.png" alt="Battle Game" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
+            </div>
+            <a href="#carousel__slide2" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide4" class="carousel__next">Go to next slide</a>
+        </li>
+        <li id="carousel__slide4" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper">
+                    <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                Timmy C made a math trivia game using HTML, CSS, and JavaScript</p>
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; padding: 0; border-radius: 0;">
+                    <source src="math.mov" type="video/mp4">
+            </div>
+            <a href="#carousel__slide3" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide5" class="carousel__next">Go to first slide</a>
+        </li>
+        <li id="carousel__slide5" tabindex="0" class="carousel__slide">
+            <div class="carousel__snapper">
+                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                Weston G made a chrome extension that makes wikipedia look funny using HTML, CSS, and JavaScript</p>
+                <video autoplay loop muted playsinline style="width: 100%; height: auto; padding: 0; border-radius: 0;">
+                    <source src="wikipedia.mov" type="video/mp4">
+            </div>
+            <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+        </li>
+    </ol>
+</section>
         <h2 class="section-head">Our Three Core Values</h2>
         <div class="section-grid">
 
