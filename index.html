@@ -493,6 +493,16 @@
         }
         }
 
+        /* make carousel display none if on iphone */
+        @media only screen and (max-width: 600px){
+        .carousel {
+            display: none;
+        }
+        .cheader {
+            display: none;
+        }
+        }
+
         .carousel:hover .carousel__snapper,
         .carousel:focus-within .carousel__snapper {
         animation-name: none;
@@ -639,7 +649,7 @@
 <!-- <h1>CSS-only Carousel</h1>
 
 <p>This carousel is created with HTML and CSS only.</p> -->
-<h1 style="margin-top: 50px; margin-bottom: -50px; width: 100%; text-align: center;">Check out some of the amazing projects our students made!</h1>
+<h1 class="cheader" style="margin-top: 50px; margin-bottom: -50px; width: 100%; text-align: center;">Check out some of the amazing projects our students made!</h1>
 <section class="carousel" aria-label="Gallery">
     <ol class="carousel__viewport">
         <li id="carousel__slide1" tabindex="0" class="carousel__slide">
@@ -691,6 +701,7 @@
         </li>
     </ol>
 </section>
+
         <h2 class="section-head">Our Three Core Values</h2>
         <div class="section-grid">
 
