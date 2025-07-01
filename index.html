@@ -3,6 +3,7 @@
 
 <head>
     <meta name="google-site-verification" content="kGd79tspnjUt5clbfSXE0jl0J0OXwoutM01DSNVSlOk" />
+    <!-- we still haven't logged so let's see if this works. blah blah blah blah blah -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding The Future</title>
@@ -588,9 +589,38 @@
     <div class="enrollment">
         <div>
             <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">Enrollment
+                href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform" id="banner">Enrollment
                 for Summer classes is now open!</a>
         </div>
+        <script>
+            function getSeason(date = new Date()) {
+                const year = date.getFullYear();
+                const current = new Date(year, date.getMonth(), date.getDate());
+
+                const fallStart = new Date(year, 5, 2);   // June 2
+                const fallEnd = new Date(year, 8, 1);     // September 1
+
+                const springStart = new Date(year, 8, 2); // September 2
+                const springEnd = new Date(year + 1, 0, 8); // January 8 next year
+
+                const summerStart = new Date(year, 0, 9);  // January 9
+                const summerEnd = new Date(year, 4, 25);   // May 25
+
+                if (current >= fallStart && current <= fallEnd) {
+                    return ["Fall", "September 1"];
+                } else if (current >= springStart || current <= springEnd) {
+                    return ["Spring", "January 8"];
+                } else if (current >= summerStart && current <= summerEnd) {
+                    return ["Summer", "May 25"];
+                } else {
+                    return ["Summer", "May 25"];
+                }
+            }
+
+            // Set season text in HTML
+            timing = getSeason()
+            document.getElementById("banner").innerText = "Enrollment for " + timing[0] + " classes is now open, and closes " + timing[1] + "!";
+        </script>
     </div>
     <header>
         <h1>Coding The Future</h1>
@@ -603,21 +633,14 @@
                 <h1 class="title">Free Virtual CS Classes and Tutoring</h1>
                 <br>
                 <p>
-                    Coding the Future is a student-led program offering free coding classes and one-on-one tutoring to
-                    students of all ages
-                    around the world.
+                    Coding the Future is a student-led program offering free virtual coding classes and one-on-one tutoring to
+                    students around the world.
                     <br><br>
-                    Coding classes are run for around 4 months three times a year, beginning in September, February, and
-                    June. Classes are
-                    once a week on zoom and are 40 minutes long, broken up into 20 minutes for instruction and 20
-                    minutes for students to pursue
-                    passion projects with help from instructors.
+                    Coding classes run for 4 months, with sessions beginning in September, January, and
+                    June. Classes are once a week on Zoom and are 40 minutes long. We also offer one-on-one tutoring, providing support that ranges 
+                    from teaching basic topics to assisting with passion projects.
                     <br><br>
-                    In our one-on-one tutoring program, we connect high school and university students experienced in
-                    computer science to
-                    other students of any age who are interested in learning or advancing their coding skills. The
-                    support this program
-                    provides can range from teaching basic topics to consulting on complicated projects.
+                    Whether you want to learn Python, develop your first website, or make a neural network, we can help you!
                     <br><br>
                     Every tutor working with Coding the Future has been interviewed and vetted to make sure that they
                     will be a dedicated
@@ -771,14 +794,16 @@
             const tooltip = d3.select("#tooltip");
 
             const data = {
-                "USA": 25,
-                "IND": 4,
+                "USA": 41,
+                "IND": 7,
                 "ITA": 1,
-                "EGY": 6,
-                "PAK": 1,
+                "EGY": 7,
+                "PAK": 2,
                 "BRA": 1,
                 "COL": 2,
-                "DEU": 1
+                "DEU": 1,
+                "UAE": 1,
+                "LTU": 1,
             };
 
             const colorScale = d3.scaleSequential(d3.interpolateBlues)
@@ -802,9 +827,9 @@
                     .data(world.features)
                     .enter().append("path")
                     .attr("d", path)
-                    .attr("fill", d => {
+                    .attr("fill", d => {    
                         let value = data[d.id] || 0;
-                        value = value / 5 + Math.log(value + 1) * 5;
+                        value = value + Math.log(value + 1) * 10;
                         return colorScale(value);
                     })
                     .attr("stroke", "gray")
@@ -831,11 +856,9 @@
             <section id="classes">
                 <h2>Classes</h2>
                 <p>
-                    Coding classes are run for around 4 months three times a year, beginning in September, February, and
-                    June. Classes are
-                    once a week and are 40 minutes long, broken up into 20 minutes for instruction and 20 minutes for
-                    students to pursue
-                    passion projects with help from instructors. In the coding classes, high school and university
+                    Coding classes are run weekly for around 4 months in the Fall, Spring, and Summer. Sessions beginning the week 
+                    of September 8, January  15, and June 1. Classes are once a week and are 40 minutes long. 
+                    In the coding classes, high school and university
                     students provide
                     instruction to groups of 5-10 students on a topic of common interest. These classes are aimed at
                     middle and high school
@@ -846,16 +869,14 @@
                         form</a> to demonstrate what you would be interested in learning and
                     when you could meet. Class times will be determined by student availability. When filling out the
                     form you will automatically be considered for enrollment for the
-                    next cohort (September, February, or June), unless otherwise noted.
+                    next cohort (September, January, or June), unless otherwise noted.
                 </p>
             </section>
             <section id="format">
                 <h2>One-on-one Tutoring</h2>
                 <p>
-                    Coding the Future offers one-on-one tutoring online tutoring. The frequency and length of tutoring
-                    sessions
-                    is up to the tutee and tutor to decide,
-                    however we suggest weekly meetings for half an hour to an hour.
+                    One-on-one tutoring can offer more individualized support for students who are interested in assistance 
+                    on a passion project or learning a niche topic. Sessions meet weekly for 30 minutes.
                 </p>
             </section>
             <section id="what">
@@ -878,8 +899,7 @@
                     passionate
                     about computer science and teaching.
                     Our tutors are high school and university students who are eager to share their knowledge and help
-                    others
-                    learn.
+                    others learn.
                 </p>
             </section>
             <section id="tutees">
@@ -888,7 +908,7 @@
                     If you are interested in enrolling in Coding the Future you can fill out <a
                         href="https://docs.google.com/forms/d/e/1FAIpQLSe1W2BpAYZegAG0yVNrr_rW_DUlgS6thHVKGmvhLlU_xOgMZw/viewform">this
                         form</a>.
-                    Upon submission of the form, you will be contacted by a member of the Coding the Future team.
+                    Upon submission of the form, you will be contacted by a member of the Coding The Future team.
                 </p>
             </section>
             <section id="tutors">
@@ -897,13 +917,12 @@
                     We are always looking for new tutors to join our team. If you are a student who is passionate about
                     computer
                     science and teaching, we would love to have you on board!
-                    If you are interested in joining Coding the Future as an instructor you can apply by filling out <a
+                    If you are interested in joining Coding The Future as an instructor you can apply by filling out <a
                         href="https://docs.google.com/forms/d/e/1FAIpQLScSqARppSR7S9Ukoo9ujH6P1_g1I939yZpv68dVVd4WEGN1Pg/viewform">this
                         form</a>.
 
                     Upon submission of the form, you will be contacted by a member of the Coding the Future team to
-                    schedule an
-                    interview.
+                    schedule an interview.
                 </p>
             </section>
         </div>
@@ -914,41 +933,61 @@
                 <div class="item">
                     <img src="alex.jpeg" alt="Alex Berman">
                     <h3>Alex Berman - NY, USA</h3>
-                    <p>Co-Founder and President</p>
+                    <p>Co-Founder and Co-president</p>
                 </div>
                 <div class="item">
                     <img src="shiv.jpg" alt="Shiv Topali">
                     <h3>Shiv Topali - NY, USA</h3>
-                    <p>Co-Founder and President</p>
+                    <p>Co-Founder and Co-president</p>
+                </div>
+                <div class="item">
+                    <img src="hitanshee.png" alt="hitanshee Sheth">
+                    <h3>Hitanshee Sheth - NJ, USA</h3>
+                    <p>Co-president</p>
                 </div>
                 <div class="item">
                     <img src="shreyas.jpeg" alt="Shreyas Rajaram">
                     <h3>Shreyas Rajaram - NY, USA</h3>
-                    <p>Executive Director</p>
-                </div>
-                <div class="item">
-                    <img src="ollie.png" alt="Oliver Maranda">
-                    <h3>Oliver Maranda - MI, USA</h3>
-                    <p>Director</p>
+                    <p>Director of Curriculum Development</p>
                 </div>
                 <div class="item">
                     <img src="shreya.png" alt="Shreya Ranjan">
                     <h3>Shreya Ranjan - NY, USA</h3>
-                    <p>Director of Outreach</p>
+                    <p>Co-director of Event Planning</p>
                 </div>
                 <div class="item">
+                    <img src="yusuf.png" alt="Yusuf Amin">
+                    <h3>Yusuf Amin - India</h3>
+                    <p>Co-director of Event Planning</p>
+                </div>
+                <div class="item">
+                    <img src="kiran.jpg" alt="Kiran Maduraperuma">
+                    <h3>Kiran Maduraperuma - NY, USA</h3>
+                    <p>Co-director of Outreach</p>
+                </div>
+                <div class="item">
+                    <img src="elaine.png" alt="Elaine Huang">
+                    <h3>Kiran Maduraperuma - CA, USA</h3>
+                    <p>Co-director of Outreach</p>
+                </div>
+                 <div class="item" style="opacity: 0;">
+                    <img src="alex.jpeg" alt="Alex Berman">
+                    <h3>Alex Berman - NY, USA</h3>
+                    <p>Co-Founder and Co-president</p>
+                </div>
+                <!-- <div class="item">
                     <img src="jaanvi.jpg" alt="Jaanvi Chirimar">
                     <h3>Jaanvi Chirimar - NY, USA</h3>
                     <p>Director</p>
                 </div>
                 <div class="item">
-                    <img src="hitanshee.png" alt="hitanshee Sheth">
-                    <h3>Hitanshee Sheth - NJ, USA</h3>
+                    <img src="jo.png" alt="Josie Chan">
+                    <h3>Josie Chan - NY, USA</h3>
                     <p>Director</p>
                 </div>
                 <div class="item">
-                    <img src="jo.png" alt="Josie Chan">
-                    <h3>Josie Chan - NY, USA</h3>
+                    <img src="ollie.png" alt="Oliver Maranda">
+                    <h3>Oliver Maranda - MI, USA</h3>
                     <p>Director</p>
                 </div>
                 <div class="item">
@@ -960,17 +999,7 @@
                     <img src="zoe.png" alt="Juna Lee">
                     <h3>Zoe - NY, USA</h3>
                     <p>Director of Curriculum Development</p>
-                </div>
-                <div class="item">
-                    <img src="shreya.png" alt="Shreya Ranjan" style="opacity: 0">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="item">
-                    <img src="shreya.png" alt="Shreya Ranjan" style="opacity: 0">
-                    <h3></h3>
-                    <p></p>
-                </div>
+                </div> -->
             </div>
             <div class="team-container2">
 
