@@ -582,6 +582,57 @@
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='100,50 20,100 20,0' fill='%23fff'/%3E%3C/svg%3E");
         }
 
+        .ack-container {
+            text-align: center;
+            margin-top: 50px;
+            font-family: "Lato";
+            font-size: 20px;
+            color: #493a27;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+        }
+
+        .ack-header {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ack-logo {
+            height: 100px;
+            width: auto;
+        }
+
+        .ack-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #a65f02;
+            margin-left: 30px;
+            text-align: left;
+            flex: 1 1 auto; /* Allow title to grow/shrink */
+        }
+
+        .ack-text {
+            font-size: 18px;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .ack-line {
+            width: 100%;
+            height: 1px;
+            background-color: #a65f02;
+            margin: 20px 0;
+        }
+
+
     </style>
 </head>
 
@@ -621,6 +672,10 @@
             timing = getSeason()
             document.getElementById("banner").innerText = "Enrollment for " + timing[0] + " classes is now open, and closes " + timing[1] + "!";
         </script>
+        <div>
+            <a
+                href="https://forms.gle/m41E3Ss9PYg5gUpy9" id="speaker">And click here to sign up for our summer speaker series</a>
+        </div>
     </div>
     <header>
         <h1>Coding The Future</h1>
@@ -802,7 +857,7 @@
                 "BRA": 1,
                 "COL": 2,
                 "DEU": 1,
-                "UAE": 1,
+                "ARE": 1,
                 "LTU": 1,
             };
 
@@ -835,6 +890,7 @@
                     .attr("stroke", "gray")
                     .on("mouseover", function (event, d) {
                         const countryName = d.properties.name;
+                        console.log(d.id)
                         const value = data[d.id] || 0;
                         tooltip.transition().duration(200).style("opacity", .9);
                         value == 1 ?
@@ -1006,12 +1062,51 @@
             </div>
 
         </div>
+        <div class="section-container">
+            <h1>Acknowledgements</h1>
+            <div class="ack-container">
+                <!-- TTL ACK -->
+                <div class="ack-header">
+                    <img class="ack-logo" src="https://www.thisteenagelife.org/LogoMouth.png" />
+                    <h4 class="ack-title">This Teenage Life</h4>
+                </div>
+                <p class="ack-text">
+                    This Teenage Life is a podcast that shares the stories of teenagers around the world.
+                    Coding The Future was featured on an episode of This Teenage Life.
+                    Give it a listen on 
+                    <a href="https://open.spotify.com/episode/0IVcmkAnuSUQB47Gvoogqu">Spotify!</a>
+                </p>
+                <div class="ack-line"></div>
+                <!-- The Contribution Project ACK -->
+                <div class="ack-header">
+                    <img class="ack-logo" src="https://images.squarespace-cdn.com/content/v1/66bdfefc4a04b75eab7f5fdb/6bbd9cc0-3063-4431-9cc2-f12d40035610/contribution+project+_+_logo_sapphire.png" />
+                    <h4 class="ack-title">The Contribution Project</h4>
+                </div>
+                <p class="ack-text">
+                    The Contibution Project is a non-profit organization that supports students making an impact.
+                    We are grateful for their $400 grant that enabled us to provide students in our community with 
+                    free Arduino kits.
+                </p>
+                <div class="ack-line"></div>
+                <!-- Brajeshwar ACK -->
+                <div class="ack-header">
+                    <img class="ack-logo" src="https://avatars.githubusercontent.com/u/17795?v=4" />
+                    <h4 class="ack-title">Brajeshwar.com</h4>
+                </div>
+                <p class="ack-text">
+                    Brajeshwar.com is a blog run by Brajeshwar Oinam, a software engineer, entrepreneur, and business executive.
+                    He has been a great supporter of Coding The Future, sharing our story on his blog and with his community in India.
+                    You can read his article about Coding The Future <a href="https://brajeshwar.com/2025/coding-the-future/">here</a>.
+                </p>
+                <!-- <div class="ack-line"></div> -->
+            </div>
+        </div>
     </main>
     <footer>
         <p> Contact us: codingthefuture101@gmail.com</p>
     </footer>
     <footer>
-        <p>&copy; 2024 Coding The Future</p>
+        <p>&copy; 2025 Coding The Future</p>
     </footer>
 </body>
 
