@@ -3,7 +3,7 @@
 
 <head>
     <meta name="google-site-verification" content="kGd79tspnjUt5clbfSXE0jl0J0OXwoutM01DSNVSlOk" />
-    <!-- we still haven't logged so let's see if this works. blah blah blah blah blah -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding The Future</title>
@@ -25,6 +25,10 @@
         li {
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            overflow-x: hidden;
         }
 
         body {
@@ -245,19 +249,18 @@
         .team-container {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center; /* horizontally center the .item elements */
             width: 100%;
         }
+
 
         .item {
             margin: 20px;
             text-align: center;
             padding: 10px;
-            /* background-color: rgb(238, 238, 238); */
             border-radius: 5px;
             flex: 1 1 25vw;
-            /* Grow, shrink, and set base width */
             min-width: 250px;
-            /* Ensures no column is less than 250px */
             max-width: 30vw;
             min-height: 250px;
             max-height: 30vw;
@@ -280,14 +283,6 @@
 
         h3 {
             margin-top: -10px;
-        }
-
-        @media screen and (max-width: 600px) {
-
-            .team-container {
-                display: grid;
-                grid-template-columns: 1fr;
-            }
         }
 
         .tooltip {
@@ -473,6 +468,7 @@
         width: 100%;
         height: 100%;
         scroll-snap-align: center;
+        font-size: 2.5vw;
         }
 
         @media (hover: hover) {
@@ -732,7 +728,7 @@
     <ol class="carousel__viewport">
         <li id="carousel__slide1" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper" style="height: auto;">
-                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                <p style="text-align: center; font-family: lato; margin-top: 0px;">
                 Raphael B coded his own 2048 game in P5.js</p>
                 <img src="2048.png" alt="2048 game" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
                 <a href="#carousel__slide6" class="carousel__prev">Go to last slide</a>
@@ -741,7 +737,7 @@
         </li>
         <li id="carousel__slide2" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper">
-                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                <p style="text-align: center; font-family: lato; margin-top: 0px;">
                 Anjali S made a grade calculator in Python</p>
                 <img src="gradecalculator.png" alt="Grade Calculator" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
             </div>
@@ -750,7 +746,7 @@
         </li>
         <li id="carousel__slide3" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper">
-                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                <p style="text-align: center; font-family: lato; margin-top: 0px;">
                 Gerard S made a 2 player fighting game in p5.js</p>
                 <img src="battlegame.png" alt="Battle Game" style="width: 100%; height: auto; padding: 0; border-radius: 0;">
             </div>
@@ -759,7 +755,7 @@
         </li>
         <li id="carousel__slide4" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper">
-                    <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                    <p style="text-align: center; font-family: lato; margin-top: 0px;">
                 Timmy C made a math trivia game using HTML, CSS, and JavaScript</p>
                 <video autoplay loop muted playsinline style="width: 100%; height: auto; padding: 0; border-radius: 0;">
                     <source src="math.mov" type="video/mp4">
@@ -769,17 +765,17 @@
         </li>
         <li id="carousel__slide5" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper">
-                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                <p style="text-align: center; font-family: lato; margin-top: 0px;">
                 Weston G made a chrome extension that makes wikipedia look funny using HTML, CSS, and JavaScript</p>
                 <video autoplay loop muted playsinline style="width: 100%; height: auto; padding: 0; border-radius: 0;">
                     <source src="wikipedia.mov" type="video/mp4">
             </div>
-            <a href="#carousel__slide6" class="carousel__prev">Go to previous slide</a>
-            <a href="#carousel__slide1" class="carousel__next">Go to first slide</a>
+            <a href="#carousel__slide4" class="carousel__prev">Go to previous slide</a>
+            <a href="#carousel__slide6" class="carousel__next">Go to first slide</a>
         </li>
         <li id="carousel__slide6" tabindex="0" class="carousel__slide">
             <div class="carousel__snapper">
-                <p style="text-align: center; font-size: 2rem; font-family: lato; margin-top: 0px;">
+                <p style="text-align: center; font-family: lato; margin-top: 0px;">
                     Aaradhya V made Wordle using Python!</p>
                 <video autoplay loop muted playsinline style="width: 100%; height: auto; padding: 0; border-radius: 0;">
                     <source src="wordle.mov" type="video/mp4">
